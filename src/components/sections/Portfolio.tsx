@@ -9,17 +9,12 @@ import Terminal from './Terminal';
 import Contact from './Contact';
 
 const Portfolio = () => {
+  console.log('Portfolio component rendering');
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-blue-500 text-white p-4">
+      <h2 className="text-2xl mb-4">Portfolio Component Loaded</h2>
       <Navigation />
       <Hero />
-      <About />
-      <Projects />
-      <Education />
-      <Achievements />
-      <Blog />
-      <Terminal />
-      <Contact />
     </div>
   );
 };
