@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { motion } from 'framer-motion';
 
 const Terminal = () => {
   const [input, setInput] = useState('');
@@ -72,10 +73,102 @@ Always learning, always coding, always improving.`,
 github.com/alexchen
 Ready to collaborate!`,
 
+    neofetch: () => `                    ./+o+-       alex@portfolio
+                  yyyyy- -yyyyyy+    ----------------
+               ://+//////-yyyyyyo    OS: Portfolio Linux x86_64
+           .++ .:/++++++/-.+sss/\`    Host: Developer Workstation
+         .:++o:  /++++++++/:--:/-    Kernel: 6.2.0-terminal
+        o:+o+:++.\`..\`\`\`.-/oo+++++/   Uptime: 365 days
+       .:+o:+o/.          \`+sssoo+/  Packages: 1337 (npm)
+  .++/+:+oo+o:\`             /sssooo. Shell: zsh 5.9
+ /+++//+:\`oo+o               /::--:. Resolution: 1920x1080
+ \+/+o+++\`o++o               ++////.  DE: VS Code
+  .++.o+++oo+:\`             /dddhhh. Theme: Cyberpunk Green
+       .+.o+oo:.          \`oddhhhh+  Icons: Nerd Fonts
+        \+.++o+o\`\`-\`\`\`\`.:ohdhhhhh+   Terminal: Alacritty
+         \`:o+++ \`ohhhhhhhhyo++os:   CPU: AMD Ryzen 9 (16) @ 3.8GHz
+           .o:\`.syhhhhhhh/.oo++o\`   GPU: NVIDIA RTX 4090
+               /osyyyyyyo++ooo+++/   Memory: 32GB DDR4
+                   \`\`\`\`\` +oo+++o\:`,
+
+    matrix: () => {
+      const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+      let result = '';
+      for (let i = 0; i < 10; i++) {
+        for (let j = 0; j < 50; j++) {
+          result += chars[Math.floor(Math.random() * chars.length)];
+        }
+        result += '\n';
+      }
+      return result + '\nWelcome to the Matrix, Neo...';
+    },
+
+    easter: () => `🥚 Easter Eggs Found:
+• Type 'matrix' for digital rain
+• Type 'neofetch' for system info
+• Type 'sudo make me a sandwich' 
+• Type 'sl' for surprise
+• Type 'cowsay hello' for ASCII art`,
+
+    sl: () => `      ====        ________                ___________
+  _D _|  |_______/        \\__I_I_____===__|_________|
+   |(_)---  |   H\\________/ |   |        =|___ ___|      _________________
+   /     |  |   H  |  |     |   |         ||_| |_||     _|                \\_____A
+  |      |  |   H  |__--------------------| [___] |   =|                        |
+  |      |  |   H  |__----------------------'   ' |____|_____________________|
+  |______|__|___H__/|_|                                                       |
+                                                          CHOO CHOO! 🚂`,
+
+    'cowsay hello': () => ` _______
+< hello >
+ -------
+        \\   ^__^
+         \\  (oo)\\_______
+            (__)\\       )\\/\\
+                ||----w |
+                ||     ||`,
+
+    'sudo make me a sandwich': () => `sudo: alex is not in the sudoers file. This incident will be reported.
+
+Just kidding! 🥪 Here's your sandwich:
+     .--------.
+    /          \\
+   /   🥬 🍅 🧀  \\
+  /     🥓 🥒     \\
+ /________________\\
+      Enjoy! 😋`,
+
+    date: () => new Date().toString(),
+
+    uptime: () => `Portfolio has been running for: ${Math.floor(Math.random() * 365)} days, ${Math.floor(Math.random() * 24)} hours`,
+
+    fortune: () => {
+      const fortunes = [
+        "The best time to plant a tree was 20 years ago. The second best time is now.",
+        "Code is like humor. When you have to explain it, it's bad.",
+        "First, solve the problem. Then, write the code.",
+        "The only way to learn a new programming language is by writing programs in it.",
+        "Programming isn't about what you know; it's about what you can figure out."
+      ];
+      return fortunes[Math.floor(Math.random() * fortunes.length)];
+    },
+
     clear: () => {
       setHistory([]);
       return '';
-    }
+    },
+
+    exit: () => 'Thanks for visiting! 👋',
+
+    echo: (args?: string) => args || '',
+
+    'rm -rf /': () => `rm: cannot remove '/': Permission denied
+Nice try! 😄 But I'm not that naive.`,
+
+    hack: () => `Initiating hack sequence...
+[████████████████████████████████████████] 100%
+ACCESS GRANTED
+Just kidding! I'm a developer, not a hacker. 😉`
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -83,15 +176,18 @@ Ready to collaborate!`,
     if (!input.trim()) return;
 
     const timestamp = new Date().toLocaleTimeString();
-    const command = input.trim().toLowerCase();
+    const [command, ...args] = input.trim().split(' ');
+    const commandKey = command.toLowerCase();
     
     let output = '';
-    if (command === 'clear') {
+    if (commandKey === 'clear') {
       commands.clear();
       setInput('');
       return;
-    } else if (commands[command as keyof typeof commands]) {
-      output = commands[command as keyof typeof commands]();
+    } else if (commandKey === 'echo') {
+      output = commands.echo(args.join(' '));
+    } else if (commandKey in commands) {
+      output = (commands as any)[commandKey]();
     } else {
       output = `Command not found: ${command}. Type 'help' for available commands.`;
     }
@@ -121,28 +217,52 @@ Navigate through my portfolio using terminal commands.`,
   return (
     <section id="terminal" className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
             Interactive Terminal
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Explore my portfolio through a command-line interface. Type 'help' to get started!
           </p>
-        </div>
+        </motion.div>
 
-        <Card className="glass border-glass-border overflow-hidden">
-          <CardHeader className="bg-glass-bg/50 border-b border-glass-border">
-            <div className="flex items-center space-x-2">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <Card className="glass border-glass-border overflow-hidden">
+            <CardHeader className="bg-glass-bg/50 border-b border-glass-border">
+              <div className="flex items-center space-x-2">
+                <div className="flex space-x-2">
+                  <motion.div 
+                    className="w-3 h-3 rounded-full bg-red-500"
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.8 }}
+                  />
+                  <motion.div 
+                    className="w-3 h-3 rounded-full bg-yellow-500"
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.8 }}
+                  />
+                  <motion.div 
+                    className="w-3 h-3 rounded-full bg-green-500"
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.8 }}
+                  />
+                </div>
+                <CardTitle className="font-mono text-sm text-muted-foreground ml-4">
+                  alex@portfolio:~$
+                </CardTitle>
               </div>
-              <CardTitle className="font-mono text-sm text-muted-foreground ml-4">
-                alex@portfolio:~$
-              </CardTitle>
-            </div>
-          </CardHeader>
+            </CardHeader>
 
           <CardContent className="p-0">
             <div className="min-h-[400px] max-h-[600px] overflow-y-auto p-4 font-mono text-sm">
@@ -175,8 +295,9 @@ Navigate through my portfolio using terminal commands.`,
                 />
               </form>
             </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Code, GraduationCap, Trophy, BookOpen, Mail, Terminal } from 'lucide-react';
+import { Menu, X, Home, User, Code, GraduationCap, Trophy, BookOpen, Mail, Terminal, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTheme } from '@/hooks/useTheme';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +52,7 @@ const Navigation = () => {
       {/* Desktop Navigation */}
       <nav className="hidden md:block fixed top-4 left-1/2 transform -translate-x-1/2 z-40">
         <div className="glass rounded-full px-6 py-3">
-          <div className="flex space-x-6">
+          <div className="flex space-x-6 items-center">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -60,6 +62,12 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
+            <button
+              onClick={toggleTheme}
+              className="text-sm text-muted-foreground hover:text-terminal-cyan transition-colors ml-2"
+            >
+              {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
           </div>
         </div>
       </nav>

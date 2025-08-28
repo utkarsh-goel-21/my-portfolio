@@ -1,5 +1,6 @@
 import { Code, Database, Wrench, Layers } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { motion } from 'framer-motion';
 
 const About = () => {
   const skills = {
@@ -39,7 +40,13 @@ const About = () => {
   return (
     <section id="about" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
             About Me
           </h2>
@@ -47,10 +54,16 @@ const About = () => {
             Computer Science student at University with a passion for full-stack development,
             algorithms, and building scalable applications that solve real-world problems.
           </p>
-        </div>
+        </motion.div>
 
         {/* Bio Section */}
-        <div className="glass rounded-2xl p-8 mb-16">
+        <motion.div 
+          className="glass rounded-2xl p-8 mb-16"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl font-bold mb-4 text-terminal-green">
@@ -74,31 +87,51 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Skills Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
             return (
-              <Card key={category.title} className="glass border-glass-border hover:glow transition-all duration-300">
-                <CardHeader className="text-center pb-4">
-                  <Icon className={`h-8 w-8 mx-auto mb-2 ${category.color}`} />
-                  <CardTitle className="font-mono text-lg">{category.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    {category.items.map((skill) => (
-                      <div 
-                        key={skill}
-                        className="text-sm text-muted-foreground hover:text-foreground transition-colors p-2 rounded bg-glass-bg/50"
-                      >
-                        {skill}
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="glass border-glass-border hover:glow transition-all duration-300 group">
+                  <CardHeader className="text-center pb-4">
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.2 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Icon className={`h-8 w-8 mx-auto mb-2 ${category.color}`} />
+                    </motion.div>
+                    <CardTitle className="font-mono text-lg group-hover:text-terminal-green transition-colors">
+                      {category.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      {category.items.map((skill, skillIndex) => (
+                        <motion.div 
+                          key={skill}
+                          className="text-sm text-muted-foreground hover:text-foreground transition-colors p-2 rounded bg-glass-bg/50 cursor-pointer"
+                          whileHover={{ x: 5, backgroundColor: 'hsl(var(--terminal-green) / 0.1)' }}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: (index * 0.1) + (skillIndex * 0.05) }}
+                          viewport={{ once: true }}
+                        >
+                          {skill}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             );
           })}
         </div>

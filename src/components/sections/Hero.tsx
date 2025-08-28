@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail, Download, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import CodeRain from '../CodeRain';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [typedText, setTypedText] = useState('');
@@ -36,51 +37,109 @@ const Hero = () => {
       <CodeRain />
       
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-        <div className="mb-8">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 gradient-text">
+        <motion.div 
+          className="mb-8"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h1 
+            className="text-5xl md:text-7xl font-bold mb-4 gradient-text"
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             Alex Chen
-          </h1>
+          </motion.h1>
           <div className="text-xl md:text-2xl font-mono text-muted-foreground h-8">
             <span className="text-terminal-green">{'> '}</span>
             {typedText}
             <span className="animate-pulse">|</span>
           </div>
-        </div>
+        </motion.div>
 
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+        <motion.p 
+          className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
           Passionate about creating innovative solutions through clean code, 
           algorithmic thinking, and cutting-edge technologies.
-        </p>
+        </motion.p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Button size="lg" className="glow font-mono">
+        <motion.div 
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <Button 
+            size="lg" 
+            className="glow font-mono group hover:scale-105 transition-transform"
+            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            <Eye className="h-4 w-4 mr-2 group-hover:rotate-12 transition-transform" />
             View Projects
           </Button>
-          <Button variant="outline" size="lg" className="glass border-glass-border font-mono">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="glass border-glass-border font-mono group hover:scale-105 transition-transform"
+          >
+            <Download className="h-4 w-4 mr-2 group-hover:translate-y-1 transition-transform" />
             Download Resume
           </Button>
-        </div>
+        </motion.div>
 
         {/* Social Links */}
-        <div className="flex justify-center space-x-6 mb-12">
-          <a href="#" className="text-muted-foreground hover:text-terminal-green transition-colors">
+        <motion.div 
+          className="flex justify-center space-x-6 mb-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+        >
+          <motion.a 
+            href="https://github.com/alexchen" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-terminal-green transition-colors transform hover:scale-125"
+            whileHover={{ rotate: 360 }}
+            transition={{ duration: 0.3 }}
+          >
             <Github className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-muted-foreground hover:text-terminal-cyan transition-colors">
+          </motion.a>
+          <motion.a 
+            href="https://linkedin.com/in/alexchen-dev" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-terminal-cyan transition-colors transform hover:scale-125"
+            whileHover={{ rotate: 360 }}
+            transition={{ duration: 0.3 }}
+          >
             <Linkedin className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-muted-foreground hover:text-terminal-purple transition-colors">
+          </motion.a>
+          <motion.a 
+            href="mailto:alex.chen@university.edu"
+            className="text-muted-foreground hover:text-terminal-purple transition-colors transform hover:scale-125"
+            whileHover={{ rotate: 360 }}
+            transition={{ duration: 0.3 }}
+          >
             <Mail className="h-6 w-6" />
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
 
         {/* Scroll Indicator */}
-        <button
+        <motion.button
           onClick={scrollToAbout}
           className="animate-bounce text-muted-foreground hover:text-terminal-green transition-colors"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          whileHover={{ scale: 1.2 }}
         >
           <ChevronDown className="h-8 w-8 mx-auto" />
-        </button>
+        </motion.button>
       </div>
 
       {/* Background Grid */}
