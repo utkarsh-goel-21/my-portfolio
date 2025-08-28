@@ -1,11 +1,12 @@
-import Portfolio from '@/components/sections/Portfolio';
-
 const Index = () => {
-  console.log('Index component rendering');
   return (
-    <div className="min-h-screen bg-red-500 p-8">
-      <h1 className="text-white text-4xl">Testing - If you can see this, React is working</h1>
-      <Portfolio />
+    <div style={{ backgroundColor: 'red', minHeight: '100vh', padding: '20px' }}>
+      <h1 style={{ color: 'white', fontSize: '2rem' }}>
+        TESTING - Can you see this red background?
+      </h1>
+      <p style={{ color: 'white' }}>
+        If you can see this, React is working
+      </p>
     </div>
   );
 };
