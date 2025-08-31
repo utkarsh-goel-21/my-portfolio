@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown, Github, Linkedin, Mail, Download, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import CodeRain from '../CodeRain';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
@@ -34,8 +33,6 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <CodeRain />
-      
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
         <motion.div 
           className="mb-8"
@@ -49,7 +46,7 @@ const Hero = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Alex Chen
+            Utkarsh Goel
           </motion.h1>
           <div className="text-xl md:text-2xl font-mono text-muted-foreground h-8">
             <span className="text-terminal-green">{'> '}</span>
@@ -64,8 +61,8 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Passionate about creating innovative solutions through clean code, 
-          algorithmic thinking, and cutting-edge technologies.
+          I build things for the web. Currently exploring the intersection of 
+          design and development while pursuing my CS degree. Love turning ideas into reality with code.
         </motion.p>
 
         <motion.div 
@@ -76,7 +73,7 @@ const Hero = () => {
         >
           <Button 
             size="lg" 
-            className="glow font-mono group hover:scale-105 transition-transform"
+            className="font-mono group hover:scale-105 transition-transform"
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
           >
             <Eye className="h-4 w-4 mr-2 group-hover:rotate-12 transition-transform" />
@@ -100,7 +97,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <motion.a 
-            href="https://github.com/alexchen" 
+            href="https://github.com/utkarshgoel" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-terminal-green transition-colors transform hover:scale-125"
@@ -110,7 +107,7 @@ const Hero = () => {
             <Github className="h-6 w-6" />
           </motion.a>
           <motion.a 
-            href="https://linkedin.com/in/alexchen-dev" 
+            href="https://linkedin.com/in/utkarshgoel" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-terminal-cyan transition-colors transform hover:scale-125"
@@ -120,7 +117,7 @@ const Hero = () => {
             <Linkedin className="h-6 w-6" />
           </motion.a>
           <motion.a 
-            href="mailto:alex.chen@university.edu"
+            href="mailto:utkarsh.goel@gmail.com"
             className="text-muted-foreground hover:text-terminal-purple transition-colors transform hover:scale-125"
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.3 }}

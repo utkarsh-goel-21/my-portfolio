@@ -9,8 +9,8 @@ const Projects = () => {
       title: 'E-Commerce Platform',
       description: 'Full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include real-time inventory, payment processing, and admin dashboard.',
       tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'AWS'],
-      github: 'https://github.com/alexchen/ecommerce-platform',
-      demo: 'https://ecommerce-demo.alexchen.dev',
+      github: 'https://github.com/utkarshgoel/ecommerce-platform',
+      demo: 'https://ecommerce-demo.utkarshgoel.dev',
       stars: 142,
       forks: 23,
       status: 'Featured'
@@ -19,8 +19,8 @@ const Projects = () => {
       title: 'AI Code Assistant',
       description: 'VS Code extension that helps developers write better code using machine learning. Supports multiple programming languages with intelligent suggestions.',
       tech: ['TypeScript', 'Python', 'TensorFlow', 'VS Code API'],
-      github: 'https://github.com/alexchen/ai-code-assistant',
-      demo: 'https://marketplace.visualstudio.com/items?itemName=alexchen.ai-assistant',
+      github: 'https://github.com/utkarshgoel/ai-code-assistant',
+      demo: 'https://marketplace.visualstudio.com/items?itemName=utkarshgoel.ai-assistant',
       stars: 89,
       forks: 12,
       status: 'Open Source'
@@ -29,8 +29,8 @@ const Projects = () => {
       title: 'Real-time Chat App',
       description: 'Scalable chat application with WebSocket connections, message encryption, and file sharing capabilities. Built with microservices architecture.',
       tech: ['React', 'Socket.io', 'Express', 'MongoDB', 'Docker'],
-      github: 'https://github.com/alexchen/realtime-chat',
-      demo: 'https://chat-demo.alexchen.dev',
+      github: 'https://github.com/utkarshgoel/realtime-chat',
+      demo: 'https://chat-demo.utkarshgoel.dev',
       stars: 67,
       forks: 8,
       status: 'Live'
@@ -39,8 +39,8 @@ const Projects = () => {
       title: 'Algorithm Visualizer',
       description: 'Interactive web app for visualizing sorting and graph algorithms. Helps students understand complex algorithms through step-by-step animations.',
       tech: ['Vue.js', 'D3.js', 'Canvas API', 'Tailwind CSS'],
-      github: 'https://github.com/alexchen/algorithm-visualizer',
-      demo: 'https://algo-viz.alexchen.dev',
+      github: 'https://github.com/utkarshgoel/algorithm-visualizer',
+      demo: 'https://algo-viz.utkarshgoel.dev',
       stars: 234,
       forks: 45,
       status: 'Educational'
@@ -49,8 +49,8 @@ const Projects = () => {
       title: 'Blockchain Voting System',
       description: 'Secure voting platform using blockchain technology. Ensures transparency and immutability of votes with smart contract integration.',
       tech: ['Solidity', 'Web3.js', 'React', 'Ethereum', 'IPFS'],
-      github: 'https://github.com/alexchen/blockchain-voting',
-      demo: 'https://voting-demo.alexchen.dev',
+      github: 'https://github.com/utkarshgoel/blockchain-voting',
+      demo: 'https://voting-demo.utkarshgoel.dev',
       stars: 156,
       forks: 32,
       status: 'Research'
@@ -59,8 +59,8 @@ const Projects = () => {
       title: 'Task Management API',
       description: 'RESTful API for task management with user authentication, role-based access control, and comprehensive documentation.',
       tech: ['FastAPI', 'Python', 'PostgreSQL', 'JWT', 'Docker'],
-      github: 'https://github.com/alexchen/task-management-api',
-      demo: 'https://api-docs.alexchen.dev',
+      github: 'https://github.com/utkarshgoel/task-management-api',
+      demo: 'https://api-docs.utkarshgoel.dev',
       stars: 78,
       forks: 15,
       status: 'Production'
@@ -187,7 +187,7 @@ const Projects = () => {
             className="glass border-glass-border font-mono group hover:scale-105 transition-transform"
             asChild
           >
-            <a href="https://github.com/alexchen" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/utkarshgoel" target="_blank" rel="noopener noreferrer">
               <Github className="h-5 w-5 mr-2 group-hover:text-terminal-green transition-colors" />
               View All on GitHub
             </a>

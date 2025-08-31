@@ -11,7 +11,7 @@ const Terminal = () => {
   const commands = {
     help: () => `Available commands:
   help      - Show this help message
-  about     - Display information about Alex
+  about     - Display information about Utkarsh
   skills    - List technical skills
   projects  - Show featured projects
   contact   - Display contact information
@@ -21,20 +21,20 @@ const Terminal = () => {
   cat       - Display file contents
   pwd       - Show current directory`,
 
-    about: () => `Alex Chen - Full-Stack Developer & CS Student
+    about: () => `Utkarsh Goel - Full-Stack Developer & CS Student
   
-Location: University Campus
-Status: Computer Science Senior
-Focus: Full-stack development, algorithms, AI/ML
-Currently: Building scalable web applications and competing in programming contests`,
+Location: India
+Status: Computer Science Student
+Focus: Web Development, System Design, Open Source
+Currently: Building cool projects and learning something new every day`,
 
     skills: () => `Technical Skills:
   
-Languages: JavaScript, TypeScript, Python, Java, C++, Go, Rust
+Languages: JavaScript, TypeScript, Python, Java, C
 Frontend: React, Next.js, Vue.js, Tailwind CSS, Framer Motion
-Backend: Node.js, Express, Django, FastAPI, Spring Boot
-Databases: PostgreSQL, MongoDB, Redis, MySQL
-Tools: Git, Docker, AWS, Kubernetes, Linux, VS Code`,
+Backend: Node.js, Express, Django
+Databases: PostgreSQL, MongoDB, MySQL
+Tools: Git, AWS, VS Code`,
 
     projects: () => `Featured Projects:
   
@@ -47,33 +47,33 @@ Tools: Git, Docker, AWS, Kubernetes, Linux, VS Code`,
 
     contact: () => `Contact Information:
   
-Email: alex.chen@university.edu
-GitHub: github.com/alexchen
-LinkedIn: linkedin.com/in/alexchen-dev
-Website: alexchen.dev
+Email: utkarsh.goel@gmail.com
+GitHub: github.com/utkarshgoel
+LinkedIn: linkedin.com/in/utkarshgoel
+Website: utkarshgoel.dev
   
 Feel free to reach out for collaboration opportunities!`,
 
-    whoami: () => `alex_chen`,
+    whoami: () => `utkarsh_goel`,
 
     pwd: () => currentPath,
 
     ls: () => `total 8
-drwxr-xr-x  2 alex alex 4096 Jan 15 10:30 projects/
-drwxr-xr-x  2 alex alex 4096 Jan 15 10:30 skills/
--rw-r--r--  1 alex alex  256 Jan 15 10:30 about.txt
--rw-r--r--  1 alex alex  512 Jan 15 10:30 resume.pdf
--rw-r--r--  1 alex alex  128 Jan 15 10:30 contact.txt`,
+drwxr-xr-x  2 utkarsh utkarsh 4096 Jan 15 10:30 projects/
+drwxr-xr-x  2 utkarsh utkarsh 4096 Jan 15 10:30 skills/
+-rw-r--r--  1 utkarsh utkarsh  256 Jan 15 10:30 about.txt
+-rw-r--r--  1 utkarsh utkarsh  512 Jan 15 10:30 resume.pdf
+-rw-r--r--  1 utkarsh utkarsh  128 Jan 15 10:30 contact.txt`,
 
-    'cat about.txt': () => `Passionate Computer Science student with a love for clean code,
-algorithmic thinking, and building innovative solutions.
-Always learning, always coding, always improving.`,
+    'cat about.txt': () => `Just a developer who loves to build stuff that matters.
+Turning coffee into code, one commit at a time.
+Always curious, always learning.`,
 
-    'cat contact.txt': () => `alex.chen@university.edu
-github.com/alexchen
+    'cat contact.txt': () => `utkarsh.goel@gmail.com
+github.com/utkarshgoel
 Ready to collaborate!`,
 
-    neofetch: () => `                    ./+o+-       alex@portfolio
+    neofetch: () => `                    ./+o+-       utkarsh@portfolio
                   yyyyy- -yyyyyy+    ----------------
                ://+//////-yyyyyyo    OS: Portfolio Linux x86_64
            .++ .:/++++++/-.+sss/\`    Host: Developer Workstation
@@ -128,7 +128,7 @@ Ready to collaborate!`,
                 ||----w |
                 ||     ||`,
 
-    'sudo make me a sandwich': () => `sudo: alex is not in the sudoers file. This incident will be reported.
+    'sudo make me a sandwich': () => `sudo: utkarsh is not in the sudoers file. This incident will be reported.
 
 Just kidding! 🥪 Here's your sandwich:
      .--------.
@@ -200,7 +200,7 @@ Just kidding! I'm a developer, not a hacker. 😉`
     // Add welcome message on mount
     setHistory([{
       command: 'welcome',
-      output: `Welcome to Alex Chen's Portfolio Terminal!
+      output: `Welcome to Utkarsh Goel's Portfolio Terminal!
       
 Type 'help' to see available commands.
 Navigate through my portfolio using terminal commands.`,
@@ -259,7 +259,7 @@ Navigate through my portfolio using terminal commands.`,
                   />
                 </div>
                 <CardTitle className="font-mono text-sm text-muted-foreground ml-4">
-                  alex@portfolio:~$
+                  utkarsh@portfolio:~$
                 </CardTitle>
               </div>
             </CardHeader>
@@ -270,7 +270,7 @@ Navigate through my portfolio using terminal commands.`,
                 <div key={index} className="mb-4">
                   {entry.command !== 'welcome' && (
                     <div className="flex items-center space-x-2 text-terminal-green">
-                      <span>alex@portfolio:{currentPath}$</span>
+                      <span>utkarsh@portfolio:{currentPath}$</span>
                       <span className="text-foreground">{entry.command}</span>
                     </div>
                   )}
@@ -283,7 +283,7 @@ Navigate through my portfolio using terminal commands.`,
               ))}
 
               <form onSubmit={handleSubmit} className="flex items-center space-x-2">
-                <span className="text-terminal-green">alex@portfolio:{currentPath}$</span>
+                <span className="text-terminal-green">utkarsh@portfolio:{currentPath}$</span>
                 <input
                   ref={inputRef}
                   type="text"

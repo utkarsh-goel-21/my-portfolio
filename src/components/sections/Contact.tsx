@@ -36,8 +36,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'alex.chen@university.edu',
-      href: 'mailto:alex.chen@university.edu',
+      value: 'utkarsh.goel@gmail.com',
+      href: 'mailto:utkarsh.goel@gmail.com',
       color: 'text-terminal-green'
     },
     {
@@ -60,25 +60,25 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com/alexchen',
+      href: 'https://github.com/utkarshgoel',
       color: 'text-foreground hover:text-terminal-green'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/alexchen-dev',
+      href: 'https://linkedin.com/in/utkarshgoel',
       color: 'text-foreground hover:text-terminal-cyan'
     },
     {
       icon: Twitter,
       label: 'Twitter',
-      href: 'https://twitter.com/alexchen_dev',
+      href: 'https://twitter.com/utkarshgoel_dev',
       color: 'text-foreground hover:text-terminal-purple'
     },
     {
       icon: Mail,
       label: 'Email',
-      href: 'mailto:alex.chen@university.edu',
+      href: 'mailto:utkarsh.goel@gmail.com',
       color: 'text-foreground hover:text-accent'
     }
   ];

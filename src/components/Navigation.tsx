@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Code, GraduationCap, Trophy, BookOpen, Mail, Terminal, Moon, Sun } from 'lucide-react';
+import { Menu, X, Home, User, Code, GraduationCap, Mail, Terminal, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/hooks/useTheme';
 
@@ -33,8 +33,6 @@ const Navigation = () => {
     { id: 'about', label: 'About', icon: User },
     { id: 'projects', label: 'Projects', icon: Code },
     { id: 'education', label: 'Education', icon: GraduationCap },
-    { id: 'achievements', label: 'Achievements', icon: Trophy },
-    { id: 'blog', label: 'Blog', icon: BookOpen },
     { id: 'terminal', label: 'Terminal', icon: Terminal },
     { id: 'contact', label: 'Contact', icon: Mail },
   ];

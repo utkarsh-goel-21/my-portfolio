@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   const skills = {
-    languages: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++', 'Go', 'Rust'],
-    frameworks: ['React', 'Next.js', 'Node.js', 'Express', 'Django', 'FastAPI', 'Spring Boot'],
-    tools: ['Git', 'Docker', 'AWS', 'Kubernetes', 'Terraform', 'Linux', 'VS Code'],
-    databases: ['PostgreSQL', 'MongoDB', 'Redis', 'MySQL', 'Firebase', 'Supabase']
+    languages: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C'],
+    frameworks: ['React', 'Next.js', 'Node.js', 'Express', 'Django'],
+    tools: ['Git', 'AWS', 'VS Code'],
+    databases: ['PostgreSQL', 'MongoDB', 'MySQL']
   };
 
   const skillCategories = [

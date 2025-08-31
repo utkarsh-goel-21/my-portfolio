@@ -11,30 +11,30 @@ All colors MUST be HSL.
   :root {
     /* Terminal Dark Theme */
     --background: 220 13% 9%;
-    --foreground: 120 100% 85%;
+    --foreground: 0 0% 90%;
     
     /* Glass Cards */
     --card: 220 13% 12%;
-    --card-foreground: 120 100% 85%;
+    --card-foreground: 0 0% 90%;
     
     /* Popover */
     --popover: 220 13% 12%;
-    --popover-foreground: 120 100% 85%;
+    --popover-foreground: 0 0% 90%;
     
-    /* Terminal Green Primary */
-    --primary: 120 100% 50%;
+    /* Subtle Blue Primary */
+    --primary: 210 60% 50%;
     --primary-foreground: 220 13% 9%;
     
-    /* Cyan Secondary */
-    --secondary: 180 100% 40%;
+    /* Muted Cyan Secondary */
+    --secondary: 180 40% 40%;
     --secondary-foreground: 220 13% 9%;
     
     /* Muted Glass */
     --muted: 220 13% 15%;
-    --muted-foreground: 120 20% 65%;
+    --muted-foreground: 0 0% 65%;
     
-    /* Electric Blue Accent */
-    --accent: 200 100% 60%;
+    /* Subtle Blue Accent */
+    --accent: 200 60% 50%;
     --accent-foreground: 220 13% 9%;
     
     /* Red for errors */
@@ -42,27 +42,27 @@ All colors MUST be HSL.
     --destructive-foreground: 220 13% 9%;
     
     /* Glass borders */
-    --border: 120 30% 25%;
-    --input: 120 30% 25%;
-    --ring: 120 100% 50%;
+    --border: 220 10% 25%;
+    --input: 220 10% 25%;
+    --ring: 210 60% 50%;
     
     --radius: 0.75rem;
     
     /* Custom Portfolio Colors */
-    --terminal-green: 120 100% 50%;
-    --terminal-cyan: 180 100% 50%;
-    --terminal-purple: 270 100% 70%;
+    --terminal-green: 160 40% 50%;
+    --terminal-cyan: 180 40% 50%;
+    --terminal-purple: 250 50% 60%;
     --code-bg: 220 13% 8%;
     --glass-bg: 220 13% 12%;
-    --glass-border: 120 30% 25%;
+    --glass-border: 220 10% 25%;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(120 100% 50%), hsl(180 100% 50%));
-    --gradient-secondary: linear-gradient(135deg, hsl(180 100% 40%), hsl(270 100% 70%));
+    --gradient-primary: linear-gradient(135deg, hsl(210 60% 50%), hsl(180 40% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(180 40% 40%), hsl(250 50% 60%));
     --gradient-glass: linear-gradient(135deg, hsl(220 13% 12% / 0.8), hsl(220 13% 15% / 0.6));
     
     /* Shadows */
-    --shadow-glow: 0 0 30px hsl(120 100% 50% / 0.3);
+    --shadow-glow: 0 0 20px hsl(210 60% 50% / 0.2);
     --shadow-glass: 0 8px 32px hsl(220 13% 4% / 0.4);
     
     /* Animations */
