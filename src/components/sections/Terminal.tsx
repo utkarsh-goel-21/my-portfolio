@@ -47,9 +47,9 @@ Tools: Git, AWS, VS Code`,
 
     contact: () => `Contact Information:
   
-Email: utkarsh.goel@gmail.com
-GitHub: github.com/utkarshgoel
-LinkedIn: linkedin.com/in/utkarshgoel
+Email: utkarshgoel.dev@gmail.com
+GitHub: github.com/utkarsh-goel-21
+LinkedIn: linkedin.com (coming soon)
 Website: utkarshgoel.dev
   
 Feel free to reach out for collaboration opportunities!`,
@@ -69,8 +69,8 @@ drwxr-xr-x  2 utkarsh utkarsh 4096 Jan 15 10:30 skills/
 Turning coffee into code, one commit at a time.
 Always curious, always learning.`,
 
-    'cat contact.txt': () => `utkarsh.goel@gmail.com
-github.com/utkarshgoel
+    'cat contact.txt': () => `utkarshgoel.dev@gmail.com
+github.com/utkarsh-goel-21
 Ready to collaborate!`,
 
     neofetch: () => `                    ./+o+-       utkarsh@portfolio
@@ -168,7 +168,51 @@ Nice try! 😄 But I'm not that naive.`,
     hack: () => `Initiating hack sequence...
 [████████████████████████████████████████] 100%
 ACCESS GRANTED
-Just kidding! I'm a developer, not a hacker. 😉`
+Just kidding! I'm a developer, not a hacker. 😉`,
+
+    resume: () => {
+      // Create a link element to trigger download
+      const link = document.createElement('a');
+      link.href = '/resume.pdf'; // You need to add your resume.pdf to the public folder
+      link.download = 'Utkarsh_Goel_Resume.pdf';
+      link.click();
+      return `📥 Downloading resume...
+
+Note: Add your resume.pdf to the public folder for this to work.
+Alternatively, visit: https://github.com/utkarsh-goel-21`;
+    },
+
+    'open 1': () => {
+      window.open('https://github.com/utkarsh-goel-21/crypto-futures-trading-bot', '_blank');
+      return '🚀 Opening Algorithmic Trading Bot project on GitHub...';
+    },
+
+    'open 2': () => {
+      window.open('https://youtube-clone-sigma-smoky.vercel.app/', '_blank');
+      return '🎥 Opening YouTube Clone demo...';
+    },
+
+    'open 3': () => {
+      return '🔒 This is a private repository. Contact me for more details!';
+    },
+
+    'cat portfolio.json': () => `{
+  "name": "Utkarsh Goel",
+  "role": "Full-Stack Developer",
+  "university": "Manipal University Jaipur",
+  "graduation": "2027",
+  "location": "Ghaziabad, UP, India",
+  "email": "utkarshgoel.dev@gmail.com",
+  "github": "utkarsh-goel-21",
+  "status": "Available for opportunities",
+  "interests": [
+    "Full-Stack Development",
+    "Algorithmic Trading",
+    "Cloud Automation",
+    "Machine Learning"
+  ],
+  "currentlyExploring": "Advanced ML algorithms and system architecture"
+}`
   };
 
   const handleSubmit = (e: React.FormEvent) => {

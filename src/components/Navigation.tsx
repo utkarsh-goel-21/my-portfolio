@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Code, GraduationCap, Mail, Terminal, Moon, Sun } from 'lucide-react';
+import { Menu, X, Home, User, Code, GraduationCap, Mail, Terminal, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useTheme } from '@/hooks/useTheme';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +31,7 @@ const Navigation = () => {
     { id: 'hero', label: 'Home', icon: Home },
     { id: 'about', label: 'About', icon: User },
     { id: 'projects', label: 'Projects', icon: Code },
+    { id: 'skills', label: 'Skills', icon: Briefcase },
     { id: 'education', label: 'Education', icon: GraduationCap },
     { id: 'terminal', label: 'Terminal', icon: Terminal },
     { id: 'contact', label: 'Contact', icon: Mail },
@@ -48,80 +48,120 @@ const Navigation = () => {
       </div>
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:block fixed top-4 left-1/2 transform -translate-x-1/2 z-40">
-        <div className="glass rounded-full px-6 py-3">
+      <motion.nav 
+        className="hidden lg:block fixed top-4 left-1/2 transform -translate-x-1/2 z-40"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="glass rounded-full px-6 py-3 hover-lift">
           <div className="flex space-x-6 items-center">
-            {navItems.map((item) => (
-              <button
+            {navItems.map((item, index) => (
+              <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-sm font-mono text-muted-foreground hover:text-terminal-green transition-colors"
+                className="text-sm font-mono text-muted-foreground hover:text-terminal-green transition-all duration-300 relative group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
               >
                 {item.label}
-              </button>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-terminal-green transition-all duration-300 group-hover:w-full" />
+              </motion.button>
             ))}
-            <button
-              onClick={toggleTheme}
-              className="text-sm text-muted-foreground hover:text-terminal-cyan transition-colors ml-2"
-            >
-              {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden">
+      <div className="lg:hidden">
         {/* Hamburger Button */}
-        <Button
-          variant="outline"
-          size="icon"
-          className="fixed top-4 right-4 z-50 glass border-glass-border"
-          onClick={() => setIsOpen(!isOpen)}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
         >
-          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="fixed top-4 right-4 z-50 glass border-glass-border hover:border-terminal-green"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <motion.div
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </motion.div>
+          </Button>
+        </motion.div>
 
         {/* Mobile Menu */}
-        {isOpen && (
-          <div className="fixed inset-0 z-40 glass backdrop-blur-lg">
-            <div className="flex flex-col items-center justify-center h-full space-y-8">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="flex items-center space-x-3 text-lg font-mono text-muted-foreground hover:text-terminal-green transition-colors"
-                  >
-                    <Icon className="h-5 w-5" />
-                    <span>{item.label}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div 
+              className="fixed inset-0 z-40 glass backdrop-blur-lg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex flex-col items-center justify-center h-full space-y-6 px-4">
+                {navItems.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className="flex items-center space-x-3 text-lg font-mono text-muted-foreground hover:text-terminal-green transition-all duration-300 w-full max-w-xs justify-center py-3 glass rounded-lg"
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 50 }}
+                      transition={{ delay: index * 0.05 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Icon className="h-5 w-5" />
+                      <span>{item.label}</span>
+                    </motion.button>
+                  );
+                })}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-        {/* Bottom Navigation */}
-        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-40">
-          <div className="glass rounded-full p-2">
-            <div className="flex space-x-2">
-              {navItems.slice(0, 4).map((item) => {
+        {/* Bottom Navigation for Mobile */}
+        <motion.div 
+          className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-30 sm:hidden"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <div className="glass rounded-full p-2 hover-lift">
+            <div className="flex space-x-1">
+              {navItems.slice(0, 5).map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <button
+                  <motion.button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className="p-2 rounded-full text-muted-foreground hover:text-terminal-green hover:bg-glass-bg transition-colors"
+                    className="p-2.5 rounded-full text-muted-foreground hover:text-terminal-green hover:bg-glass-bg transition-all duration-300"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.05 }}
                   >
                     <Icon className="h-4 w-4" />
-                  </button>
+                  </motion.button>
                 );
               })}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );

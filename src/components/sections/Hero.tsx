@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [typedText, setTypedText] = useState('');
-  const roles = ['Full-Stack Developer', 'CS Student', 'Problem Solver', 'Code Enthusiast'];
+  const roles = ['Full-Stack Developer', 'Software Engineer', 'Building Scalable Solutions'];
   const [currentRole, setCurrentRole] = useState(0);
 
   useEffect(() => {
@@ -56,13 +56,14 @@ const Hero = () => {
         </motion.div>
 
         <motion.p 
-          className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          I build things for the web. Currently exploring the intersection of 
-          design and development while pursuing my CS degree. Love turning ideas into reality with code.
+          Computer Science student at Manipal University Jaipur specializing in full-stack development, 
+          algorithmic trading systems, and cloud automation. Passionate about building production-ready 
+          applications that solve real-world problems.
         </motion.p>
 
         <motion.div 
@@ -83,6 +84,7 @@ const Hero = () => {
             variant="outline" 
             size="lg" 
             className="glass border-glass-border font-mono group hover:scale-105 transition-transform"
+            onClick={() => window.open('/resume.pdf', '_blank')}
           >
             <Download className="h-4 w-4 mr-2 group-hover:translate-y-1 transition-transform" />
             Download Resume
@@ -97,7 +99,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <motion.a 
-            href="https://github.com/utkarshgoel" 
+            href="https://github.com/utkarsh-goel-21" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-terminal-green transition-colors transform hover:scale-125"
@@ -107,23 +109,28 @@ const Hero = () => {
             <Github className="h-6 w-6" />
           </motion.a>
           <motion.a 
-            href="https://linkedin.com/in/utkarshgoel" 
+            href="https://linkedin.com" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-terminal-cyan transition-colors transform hover:scale-125"
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.3 }}
+            title="LinkedIn (Profile coming soon)"
           >
             <Linkedin className="h-6 w-6" />
           </motion.a>
-          <motion.a 
-            href="mailto:utkarsh.goel@gmail.com"
-            className="text-muted-foreground hover:text-terminal-purple transition-colors transform hover:scale-125"
+          <motion.button
+            onClick={() => {
+              navigator.clipboard.writeText('utkarshgoel.dev@gmail.com');
+              alert('Email copied to clipboard: utkarshgoel.dev@gmail.com');
+            }}
+            className="text-muted-foreground hover:text-terminal-purple transition-colors transform hover:scale-125 bg-transparent border-none p-0 cursor-pointer"
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.3 }}
+            title="Copy email address"
           >
             <Mail className="h-6 w-6" />
-          </motion.a>
+          </motion.button>
         </motion.div>
 
         {/* Scroll Indicator */}

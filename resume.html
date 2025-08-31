@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utkarsh Goel - Resume</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Calibri", "Arial", sans-serif;
+        line-height: 1.4;
+        color: #333333;
+        font-size: 11px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 15px 25px;
+      }
+
+      /* Header */
+      h1 {
+        font-size: 22px;
+        color: #1a365d;
+        margin-bottom: 3px;
+        text-align: center;
+      }
+
+      .tagline {
+        text-align: center;
+        font-size: 11px;
+        color: #555555;
+        margin-bottom: 5px;
+      }
+
+      .contact {
+        text-align: center;
+        font-size: 10px;
+        margin-bottom: 10px;
+        color: #333333;
+      }
+
+      .contact span {
+        margin: 0 3px;
+      }
+
+      .contact a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+
+      /* Section Headers */
+      h2 {
+        font-size: 13px;
+        color: #1a365d;
+        border-bottom: 1px solid #1a365d;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      /* Skills */
+      .skills {
+        margin-bottom: 5px;
+      }
+
+      .skill-row {
+        margin-bottom: 2px;
+      }
+
+      .skill-row strong {
+        display: inline-block;
+        width: 95px;
+        font-size: 10px;
+        color: #333333;
+      }
+
+      .skill-row span {
+        font-size: 10px;
+        color: #333333;
+      }
+
+      /* Projects */
+      .project {
+        margin-bottom: 8px;
+      }
+
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2px;
+      }
+
+      .project-title {
+        font-weight: bold;
+        font-size: 11px;
+        color: #333333;
+      }
+
+      .project-links {
+        font-size: 10px;
+        font-style: italic;
+        color: #666666;
+      }
+
+      .project-links a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+
+      .tech {
+        font-size: 10px;
+        color: #666666;
+        margin-bottom: 2px;
+        font-style: italic;
+      }
+
+      ul {
+        margin-left: 15px;
+        margin-top: 2px;
+      }
+
+      li {
+        font-size: 10px;
+        margin-bottom: 1px;
+        color: #333333;
+      }
+
+      /* Education */
+      .education {
+        margin-bottom: 5px;
+      }
+
+      .edu-header {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        font-size: 11px;
+        color: #333333;
+      }
+
+      .edu-details {
+        font-size: 10px;
+        color: #333333;
+      }
+
+      /* Compact sections */
+      .compact-section {
+        font-size: 10px;
+        line-height: 1.3;
+        color: #333333;
+      }
+
+      .compact-section p {
+        margin-bottom: 2px;
+      }
+
+      @media print {
+        .container {
+          padding: 0;
+          margin: 0;
+        }
+
+        body {
+          margin: 0;
+        }
+
+        @page {
+          size: letter;
+          margin: 0.4in;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>UTKARSH GOEL</h1>
+      <div class="tagline">
+        Full-Stack Developer | Software Engineer | Cloud & Automation
+      </div>
+      <div class="contact">
+        <span>+91 7303216789</span> | <span>utkarshgoel1000@gmail.com</span> |
+        <span>Ghaziabad, UP</span> |
+        <span><a href="https://github.com/utkarsh-goel-21">GitHub</a></span> |
+        <span
+          ><a href="https://utkarsh-goel-21.github.io/my-portfolio/"
+            >Portfolio</a
+          ></span
+        >
+      </div>
+
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <div class="skill-row">
+          <strong>Languages:</strong>
+          <span>JavaScript (ES6+), TypeScript, Python, C/C++, SQL</span>
+        </div>
+        <div class="skill-row">
+          <strong>Frontend:</strong>
+          <span
+            >React.js, Next.js 14, Redux Toolkit, HTML5, CSS3, Tailwind
+            CSS</span
+          >
+        </div>
+        <div class="skill-row">
+          <strong>Backend:</strong>
+          <span
+            >Node.js, Express.js, RESTful APIs, WebSocket, JWT
+            Authentication</span
+          >
+        </div>
+        <div class="skill-row">
+          <strong>Database:</strong>
+          <span
+            >MongoDB (Mongoose ODM), SQLite, Database Design &
+            Optimization</span
+          >
+        </div>
+        <div class="skill-row">
+          <strong>Cloud/DevOps:</strong>
+          <span>AWS, Vercel, Render, Docker basics, CI/CD, Git</span>
+        </div>
+        <div class="skill-row">
+          <strong>AI/Tools:</strong>
+          <span
+            >LLM Integration (Claude, Groq), Socket.io, FFmpeg, Multer,
+            Winston</span
+          >
+        </div>
+      </div>
+
+      <h2>Projects</h2>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">Futures Trading Bot</span>
+          <span class="project-links"
+            ><a
+              href="https://github.com/utkarsh-goel-21/crypto-futures-trading-bot"
+              >GitHub</a
+            >
+            | Live on AWS</span
+          >
+        </div>
+        <div class="tech">
+          Python, Binance API, CMA-ES Algorithm, SQLite, WebSocket, AWS
+        </div>
+        <ul>
+          <li>
+            Developed algorithmic trading bot achieving 60-70% win rates across
+            9 cryptocurrency pairs
+          </li>
+          <li>
+            Implemented CMA-ES evolutionary optimization on 13 months of
+            historical data for 14+ technical indicators
+          </li>
+          <li>
+            Integrated real-time WebSocket connections for live market data and
+            automated trade execution
+          </li>
+          <li>
+            Built notification system using Telegram/Discord APIs; deployed on
+            AWS EC2 with persistent sessions
+          </li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title">Full-Stack YouTube Clone</span>
+          <span class="project-links"
+            ><a href="https://youtube-clone-sigma-smoky.vercel.app"
+              >Live Demo</a
+            >
+            |
+            <a href="https://github.com/utkarsh-goel-21/Youtube-clone"
+              >GitHub</a
+            ></span
+          >
+        </div>
+        <div class="tech">
+          Next.js 14, TypeScript, Node.js, Express.js, MongoDB, Redux,
+          Socket.io, FFmpeg
+        </div>
+        <ul>
+          <li>
+            Built feature-complete video platform with streaming, real-time
+            comments, and subscription system
+          </li>
+          <li>
+            Implemented JWT authentication with role-based access control and
+            secure user management
+          </li>
+          <li>
+            Developed custom HTML5 video player with FFmpeg integration for
+            automatic thumbnail generation
+          </li>
+          <li>
+            Deployed using microservices architecture - Frontend on Vercel,
+            Backend on Render with MongoDB Atlas
+          </li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+          <span class="project-title"
+            >AI-Powered Social Media Automation Bot</span
+          >
+          <span class="project-links">Private Repository | In Production</span>
+        </div>
+        <div class="tech">
+          Node.js, TypeScript, Multiple AI APIs (Groq, Claude, Perplexity),
+          SQLite, Node-cron
+        </div>
+        <ul>
+          <li>
+            Engineered intelligent content generation system using multiple LLMs
+            with fallback chains for 99.9% uptime
+          </li>
+          <li>
+            Implemented engagement algorithms scoring content virality with 10+
+            weighted parameters
+          </li>
+          <li>
+            Built real-time market data integration with CoinGecko API and
+            1-minute caching optimization
+          </li>
+          <li>
+            Developed rate limiting system with database tracking to manage API
+            quotas across services
+          </li>
+        </ul>
+      </div>
+
+      <h2>Education</h2>
+      <div class="education">
+        <div class="edu-header">
+          <span>Manipal University Jaipur</span>
+          <span>Jaipur, Rajasthan</span>
+        </div>
+        <div class="edu-details">
+          Bachelor of Technology in Computer Science Engineering | 2023 - 2027 |
+          CGPA: 7.68/10
+        </div>
+      </div>
+
+      <h2>Key Achievements</h2>
+      <div class="compact-section">
+        <ul>
+          <li>
+            Successfully deployed and maintained 3 production applications with
+            real users and live data
+          </li>
+          <li>
+            Achieved 60-70% win rates in algorithmic trading bot across 9
+            cryptocurrency pairs
+          </li>
+          <li>
+            Built systems handling real-time data processing with WebSocket
+            connections and API orchestration
+          </li>
+          <li>
+            Demonstrated proficiency in full-stack development, from database
+            design to UI/UX implementation
+          </li>
+          <li>
+            Self-taught AI/LLM integration and implemented complex prompt
+            engineering strategies
+          </li>
+        </ul>
+      </div>
+
+      <h2>Additional Skills</h2>
+      <div class="compact-section">
+        <p>
+          <strong>Development:</strong> RESTful API Design, MVC Architecture,
+          Microservices, Real-time Systems, Performance Optimization
+        </p>
+        <p>
+          <strong>Professional:</strong> Problem Solving, Quick Learner,
+          Debugging, Git/GitHub, Technical Documentation, Team Collaboration
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
