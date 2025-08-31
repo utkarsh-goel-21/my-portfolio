@@ -173,13 +173,13 @@ Just kidding! I'm a developer, not a hacker. 😉`,
     resume: () => {
       // Create a link element to trigger download
       const link = document.createElement('a');
-      link.href = '/resume.pdf'; // You need to add your resume.pdf to the public folder
+      // Use the correct base path for GitHub Pages
+      link.href = import.meta.env.BASE_URL + 'resume.pdf';
       link.download = 'Utkarsh_Goel_Resume.pdf';
       link.click();
       return `📥 Downloading resume...
 
-Note: Add your resume.pdf to the public folder for this to work.
-Alternatively, visit: https://github.com/utkarsh-goel-21`;
+If download doesn't start, visit: https://github.com/utkarsh-goel-21`;
     },
 
     'open 1': () => {

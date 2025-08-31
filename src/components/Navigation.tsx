@@ -133,33 +133,32 @@ const Navigation = () => {
           )}
         </AnimatePresence>
 
-        {/* Bottom Navigation for Mobile */}
+        {/* Bottom Navigation for Mobile - All items */}
         <motion.div 
-          className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-30 sm:hidden"
+          className="fixed bottom-0 left-0 right-0 z-30 sm:hidden bg-background/80 backdrop-blur-lg border-t border-glass-border"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <div className="glass rounded-full p-2 hover-lift">
-            <div className="flex space-x-1">
-              {navItems.slice(0, 5).map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <motion.button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="p-2.5 rounded-full text-muted-foreground hover:text-terminal-green hover:bg-glass-bg transition-all duration-300"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.05 }}
-                  >
-                    <Icon className="h-4 w-4" />
-                  </motion.button>
-                );
-              })}
-            </div>
+          <div className="flex justify-around items-center py-2 px-2">
+            {navItems.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="flex flex-col items-center p-2 text-muted-foreground hover:text-terminal-green transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.03 }}
+                >
+                  <Icon className="h-5 w-5 mb-1" />
+                  <span className="text-xs">{item.label}</span>
+                </motion.button>
+              );
+            })}
           </div>
         </motion.div>
       </div>

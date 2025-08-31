@@ -348,24 +348,55 @@ All colors MUST be HSL.
     box-shadow: 0 20px 40px hsl(var(--terminal-green) / 0.15);
   }
 
-  /* Mobile responsive utilities */
+  /* Mobile responsive utilities - Better sizing */
   @media (max-width: 768px) {
-    .text-4xl { font-size: 2rem; }
-    .text-5xl { font-size: 2.5rem; }
-    .text-6xl { font-size: 3rem; }
+    .text-4xl { font-size: 1.875rem; } /* 30px */
+    .text-5xl { font-size: 2.25rem; }  /* 36px */
+    .text-6xl { font-size: 2.75rem; }  /* 44px */
+    .text-2xl { font-size: 1.375rem; } /* 22px */
+    .text-xl { font-size: 1.125rem; }  /* 18px */
+    .text-lg { font-size: 1rem; }      /* 16px */
     .py-20 { padding-top: 3rem; padding-bottom: 3rem; }
     .px-4 { padding-left: 1rem; padding-right: 1rem; }
+    .space-y-8 { gap: 1.5rem; }
+    .mb-16 { margin-bottom: 2rem; }
   }
 
   @media (max-width: 640px) {
-    .text-3xl { font-size: 1.5rem; }
-    .text-4xl { font-size: 1.75rem; }
-    .text-5xl { font-size: 2rem; }
+    .text-3xl { font-size: 1.375rem; } /* 22px */
+    .text-4xl { font-size: 1.625rem; } /* 26px */
+    .text-5xl { font-size: 1.875rem; } /* 30px */
+    .text-2xl { font-size: 1.25rem; }  /* 20px */
+    .text-xl { font-size: 1.125rem; }  /* 18px */
+    .text-lg { font-size: 0.975rem; }  /* 15.6px */
+    .text-base { font-size: 0.9375rem; } /* 15px */
+    .text-sm { font-size: 0.875rem; }  /* 14px */
+    .py-16 { padding-top: 2rem; padding-bottom: 2rem; }
+    .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+    
+    /* Fix bottom navigation spacing */
+    body {
+      padding-bottom: 80px; /* Space for fixed bottom nav */
+    }
   }
 
   /* Smooth section transitions */
   section {
     transition: opacity 0.5s ease;
+    scroll-margin-top: 60px; /* Offset for fixed navigation */
+  }
+  
+  /* Prevent auto-scroll on load */
+  html {
+    scroll-behavior: smooth;
+    overflow-anchor: none;
+  }
+  
+  /* Mobile specific adjustments */
+  @media (max-width: 640px) {
+    section {
+      scroll-margin-top: 40px;
+    }
   }
 
   /* Performance optimizations */
