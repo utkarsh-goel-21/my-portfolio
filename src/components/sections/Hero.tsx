@@ -84,7 +84,12 @@ const Hero = () => {
             variant="outline" 
             size="lg" 
             className="glass border-glass-border font-mono group hover:scale-105 transition-transform"
-            onClick={() => window.open('/resume.pdf', '_blank')}
+            onClick={() => {
+              const link = document.createElement('a');
+              link.href = import.meta.env.BASE_URL + 'resume.pdf';
+              link.download = 'Utkarsh_Goel_Resume.pdf';
+              link.click();
+            }}
           >
             <Download className="h-4 w-4 mr-2 group-hover:translate-y-1 transition-transform" />
             Download Resume
